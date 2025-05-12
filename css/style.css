@@ -1,11 +1,17 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container{
+:root{
+    --ncol : 3;
+    --gap : 25px;
+
+    
+}
+
+.container {
 
     width: 80%;
     margin: 0 auto;
@@ -17,8 +23,8 @@
 
     background-image: url("../img/wall.png");
 
-    h1{
-        font-family: "Edu Tas Beginner", sans-serif;        
+    h1 {
+        font-family: "Edu Tas Beginner", sans-serif;
         font-size: 5.5rem;
         font-weight: 700;
         text-align: center;
@@ -29,31 +35,67 @@
 
 }
 
-.body{
+.body {
     background-image: url("../img/cork.png");
 }
 
-.card{
+.card {
     background-color: aliceblue;
-    width: calc((100% - 50px) / 3);    
+   
+
+    width: calc((100% - var(--gap)* (var(--ncol) - 1)) / var(--ncol)  );
     display: flex;
     flex-direction: column;
+    position: relative;
+    padding: 15px;
 
-    img{
-        display: block;
-        padding: 15px
+
+
+    .pin {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -60%);
     }
-    
+
+    .picture {
+        display: block;
+        margin-bottom: 15px;
+
+
+    }
+
+    p {
+        font-family: "Sometype Mono", "monospace";
+    }
+
+    h2 {
+        font-family: "Edu Tas Beginner", sans-serif;
+    }
+
 
 }
 
-.row{
+.row {
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
-    gap : 25px
-    
-    
-
+    gap: 25px
 }
 
+
+
+@media screen and (max-width : 900px) {
+
+    :root{
+        --ncol : 2;
+    }
+    
+}
+
+@media screen and (max-width : 650px) {
+
+    :root{
+        --ncol : 1;
+    }
+    
+}
