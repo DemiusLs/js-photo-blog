@@ -1,30 +1,38 @@
 //Utilizzo axios per richiesta Ajax
-url = "https://lanciweb.github.io/demo/api/pictures/"
-
-const cardContainer = document.querySelector(".row");
+const url = "https://lanciweb.github.io/demo/api/pictures/";
 
 
+const $one = document.querySelector.bind(document);
+const $all = document.querySelectorAll.bind(document);
 
-axios.get(url).then((response) => {
+const cardContainer = $one(".row");
 
-    console.log(response.data)
-    let template = "";
+axios.get(url).then(response => {
     response.data.forEach(element => {
-        const { id, title, date, url } = element
-
-        console.log(id, title, date, url)
-        template += `<div class="card">
-                        <span class="pin"><img src="./img/pin.svg" alt=""></span>
-                        <img class="picture"
-                            src=${url}
-                            alt="">
-                        <p class="data">${date}</p>
-                        <h2 class="nome">${title.toUpperCase()}</h2>
-                    </div>` ;
-    }
+        cardContainer.innerHTML += createCard(element)
+    });
+});
 
 
-    )
-    cardContainer.innerHTML = template;
 
-})
+/**
+ * Dato un oggetto, ritorna una stringa che codifica una card
+ * con immagine, data e titolo
+ *
+ * @param {object} obj 
+ * @returns {string} 
+ */
+function createCard(obj) {
+
+    const { id, title, date, url } = obj
+
+    return `<div class="card">
+                <span class="pin"><img src="./img/pin.svg" alt=""></span>
+                <img class="picture"
+                    src=${url}
+                    alt="">
+                <p class="data">${date}</p>
+                <h2 class="nome">${title}</h2>
+            </div>`;
+
+}

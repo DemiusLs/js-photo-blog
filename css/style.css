@@ -4,11 +4,15 @@
     box-sizing: border-box;
 }
 
-:root{
-    --ncol : 3;
-    --gap : 25px;
+img {
+    max-width: 100%;
+}
 
-    
+:root {
+    --ncol: 3;
+    --gap: 25px;
+
+
 }
 
 .container {
@@ -41,9 +45,9 @@
 
 .card {
     background-color: aliceblue;
-   
 
-    width: calc((100% - var(--gap)* (var(--ncol) - 1)) / var(--ncol)  );
+
+    width: calc((100% - var(--gap)* (var(--ncol) - 1)) / var(--ncol));
     display: flex;
     flex-direction: column;
     position: relative;
@@ -66,17 +70,20 @@
 
     p {
         font-family: "Sometype Mono", "monospace";
+        color: gray;
+        margin-bottom: 10px;
     }
 
     h2 {
         font-family: "Edu Tas Beginner", sans-serif;
+        text-transform: uppercase;
     }
 
 
 }
 
 .row {
-    margin-top: 50px;
+    padding: 50px 0;
     display: flex;
     flex-wrap: wrap;
     gap: 25px
@@ -86,16 +93,20 @@
 
 @media screen and (max-width : 900px) {
 
-    :root{
-        --ncol : 2;
+    :root {
+        --ncol: 2;
     }
-    
+
 }
 
 @media screen and (max-width : 650px) {
 
-    :root{
-        --ncol : 1;
+    :root {
+        --ncol: 1;
     }
-    
+
+    .container {
+        width: 70%;
+    }
+
 }
