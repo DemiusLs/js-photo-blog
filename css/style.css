@@ -45,8 +45,6 @@ img {
 
 .card {
     background-color: aliceblue;
-
-
     width: calc((100% - var(--gap)* (var(--ncol) - 1)) / var(--ncol));
     display: flex;
     flex-direction: column;
@@ -100,6 +98,7 @@ img {
 
 
     img {
+        max-width: 900px;
         position: relative;
         left: 50%;
         top: 50%;
@@ -109,7 +108,8 @@ img {
 
     button {
         position: absolute;
-        top: 5%;
+        left: 50%;
+        top: 15%;
         transform: translate(-50%);
         padding: 5px 10px;
     }
@@ -124,12 +124,37 @@ img {
 
 
 
-@media screen and (max-width : 900px) {
+.card:hover {
+
+    transform: rotate(10deg);
+    z-index: 998;
+    box-shadow: 10px 10px 5px rgb(0, 0, 0);
+    scale: 1.05;
+
+    span{
+        display: none;
+    }
+
+    cursor: pointer;
+}
+
+
+@media screen and (max-width : 1000px) {
 
     :root {
         --ncol: 2;
     }
 
+    .overlay {
+
+        img {
+            width: 80%;
+        }
+
+        
+
+
+    }
 }
 
 @media screen and (max-width : 650px) {
@@ -148,10 +173,7 @@ img {
             width: 80%;
         }
 
-        button{
-
-            left: 50%;
-        }
+        
 
 
     }
