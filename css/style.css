@@ -104,7 +104,6 @@ img {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-
         width: 50%;
     }
 
@@ -118,7 +117,7 @@ img {
 
 }
 
-.d-none{
+.d-none {
 
     display: none;
 }
@@ -140,7 +139,21 @@ img {
     }
 
     .container {
-        width: 70%;
+        width: 60%;
+    }
+
+    .overlay {
+
+        img {
+            width: 80%;
+        }
+
+        button{
+
+            left: 50%;
+        }
+
+
     }
 
 }

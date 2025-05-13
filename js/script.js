@@ -6,11 +6,19 @@ const $one = document.querySelector.bind(document);
 const $all = document.querySelectorAll.bind(document);
 
 const cardContainer = $one(".row");
+const clsbutton = $one(".btn-close");
+const overlay = $one(".overlay");
+
 
 axios.get(url).then(response => {
-    response.data.forEach(element => {
-        cardContainer.innerHTML += createCard(element)
-    });
+
+    createCards(response);
+
+    createClickEvent(response);
+
+
+
+
 });
 
 
@@ -22,11 +30,13 @@ axios.get(url).then(response => {
  * @param {object} obj 
  * @returns {string} 
  */
-function createCard(obj) {
+function createCards(response) {
 
-    const { id, title, date, url } = obj
+    response.data.forEach(element => {
 
-    return `<div class="card">
+        const { id, title, date, url } = element
+
+        cardContainer.innerHTML += `<div class="card" data-id = "${id}">
                 <span class="pin"><img src="./img/pin.svg" alt=""></span>
                 <img class="picture"
                     src=${url}
@@ -34,14 +44,37 @@ function createCard(obj) {
                 <p class="data">${date}</p>
                 <h2 class="nome">${title}</h2>
             </div>`;
+    })
+
 
 }
 
 
-// 
 
-const clsbutton = $one(".btn-close");
-const overlay = $one(".overlay");
+/**
+ * Scorro la risposta di axios e per ogni elemento creo un eventListener
+ *al click, modifico src dell'immagine dell'overlay e mostro overlay
+ 
+ * @param {array of object} posts 
+ */
+function createClickEvent(posts) {
+
+    const cards = $all(".card")
+
+    cards.forEach((card) => {
+
+        card.addEventListener("click", function () {
+
+            const id = parseInt(card.dataset.id);
+            const post = posts.data.find((curPost) => curPost.id === id);
+            const overlayImg = $one(".overlay img");
+            overlayImg.src = post.url;
+            overlay.classList.remove("d-none");
+        })
+    })
+}
+
+
 
 clsbutton.addEventListener("click", closeOverlay)
 
@@ -51,3 +84,5 @@ function closeOverlay() {
 
     overlay.classList.add("d-none")
 }
+
+
