@@ -36,3 +36,18 @@ function createCard(obj) {
             </div>`;
 
 }
+
+
+// 
+
+const clsbutton = $one(".btn-close");
+const overlay = $one(".overlay");
+
+clsbutton.addEventListener("click", closeOverlay)
+
+
+/** Al click del bottone nascondo  l'overlay */
+function closeOverlay() {
+
+    overlay.classList.add("d-none")
+}
