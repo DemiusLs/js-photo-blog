@@ -21,14 +21,17 @@ axios.get(url).then(response => {
 
 });
 
+clsbutton.addEventListener("click", closeOverlay)
 
 
+
+// FUNZIONI
 /**
  * Dato un oggetto, ritorna una stringa che codifica una card
  * con immagine, data e titolo
  *
- * @param {object} obj 
- * @returns {string} 
+ * @param {object} response 
+ * @returns {string} HMTL string
  */
 function createCards(response) {
 
@@ -76,7 +79,7 @@ function createClickEvent(posts) {
 
 
 
-clsbutton.addEventListener("click", closeOverlay)
+
 
 
 /** Al click del bottone nascondo  l'overlay */

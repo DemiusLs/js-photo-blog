@@ -1,3 +1,4 @@
+/* Reset globale */
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +9,7 @@ img {
     max-width: 100%;
 }
 
+/* Custom properties */
 :root {
     --ncol: 3;
     --gap: 25px;
@@ -15,14 +17,24 @@ img {
 
 }
 
+/* COMMON */
+
+.d-none {
+
+    display: none;
+}
+
 .container {
 
     width: 80%;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1400px;
 }
 
+/* MAIN */
 
+
+/* header */
 .header {
 
     background-image: url("../img/wall.png");
@@ -39,8 +51,17 @@ img {
 
 }
 
+
+/* body */
 .body {
     background-image: url("../img/cork.png");
+}
+
+.row {
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px
 }
 
 .card {
@@ -80,14 +101,24 @@ img {
 
 }
 
-.row {
-    padding: 50px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px
+.card:hover {
+
+    transform: rotate(10deg);
+    z-index: 998;
+    box-shadow: 10px 10px 5px rgb(0, 0, 0);
+    scale: 1.05;
+
+    span {
+        display: none;
+    }
+
+    cursor: pointer;
 }
 
 
+
+
+/* overlay */
 
 .overlay {
     height: 100vh;
@@ -117,28 +148,10 @@ img {
 
 }
 
-.d-none {
-
-    display: none;
-}
 
 
 
-.card:hover {
-
-    transform: rotate(10deg);
-    z-index: 998;
-    box-shadow: 10px 10px 5px rgb(0, 0, 0);
-    scale: 1.05;
-
-    span{
-        display: none;
-    }
-
-    cursor: pointer;
-}
-
-
+/* Media query per tablet */
 @media screen and (max-width : 1000px) {
 
     :root {
@@ -151,12 +164,12 @@ img {
             width: 80%;
         }
 
-        
-
 
     }
 }
 
+
+/* Media query per mobile */
 @media screen and (max-width : 650px) {
 
     :root {
@@ -167,15 +180,6 @@ img {
         width: 60%;
     }
 
-    .overlay {
 
-        img {
-            width: 80%;
-        }
-
-        
-
-
-    }
 
 }
